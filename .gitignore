@@ -1,0 +1,10 @@
+# Dependency directories
+/frontend/node_modules
+/backend/venv
+
+# Python
+__pycache__
+*pyc
+
+# Env variables
+.env
