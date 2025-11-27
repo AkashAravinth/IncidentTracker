@@ -9,7 +9,7 @@ from ..database import get_db
 # status: Contains HTTP status code constants
 
 # router: Creates a new API router object (you’ll attach endpoints to this).
-# security: Sets up HTTP Basic authentication
+# security: Sets up HTTP Basic authentication scheme, it knows how to parse the authorization header.
 
 router = APIRouter()
 security = HTTPBasic()
@@ -21,6 +21,8 @@ PASSWORD = "password"
 
 # this fucntion is created as a depedency for the endpoints.
 # Accepts user credentials (from the HTTP Basic Auth prompt) using Depends(security)
+# Depends(security): Tells FastAPI to run the security scheme before the function. 
+# It extracts username:password from the header, decodes base64, and returns an HTTPBasicCredentials object
 # HTTPEXCEPTION is a response given.
 
 # WWW-Authenticate is a special HTTP header used by servers to tell the browser or client:

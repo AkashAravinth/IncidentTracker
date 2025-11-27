@@ -23,7 +23,7 @@ engine = create_engine(
 # autoflush=False: Your unsaved changes aren’t automatically flushed (sent) to the database on each query; you control when changes go out.
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# It is a declarative base class. so the SQLAlchemy model is iherited from the Base class
+# It is a declarative base class. so the SQLAlchemy model (Incident class present in the models.py) is iherited from the Base class
 # It enables SQLAlchemy to automatically map Python classes/attributes to database tables/columns.
 Base = declarative_base()
 

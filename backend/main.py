@@ -4,6 +4,9 @@ from .database import engine
 from . import models
 from .routers import incidents, auth
 
+# models.Base is typically the declarative base class for your ORM models where all table definitions are collected.
+# metadata is an object that holds schema-level information about the tables.
+# create_all() issues SQL statements to create tables in the database if they do not already exist.
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Incident Tracker API")
