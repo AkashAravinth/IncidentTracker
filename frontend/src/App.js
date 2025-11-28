@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import CreateIncident from './pages/CreateIncident';
+import EditIncident from './pages/EditIncident';
 
 // BrowserRouter: A high-level component from React Router that wraps your entire app to enable client-side routing using the HTML5 History API. 
 // It manages the URL history and ensures navigation happens without full page reloads, allowing a smooth single-page application (SPA) experience.
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Login/>}></Route>
         <Route path="/home" element={<Home/>}></Route>
         <Route path="/create" element={<CreateIncident />}></Route>
+        <Route path="/edit/:id" element={<EditIncident />}></Route>
       </Routes>
     </BrowserRouter>
   );

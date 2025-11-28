@@ -1,8 +1,8 @@
-// axios is used for connecting with the backend server API routes.
+// api which is actually a axios is used for connecting with the backend server API routes.
 // UseNavigate is for routing purpose in the frontEnd itself.
 
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -12,14 +12,14 @@ function Login() {
   const navigate = useNavigate();
 
 // asyn is used, because, the code within the asyn function can be made as asynchronous, so the await is teh asynchrounous thing within.,
-// so the await is used to pause the code within untill the axios whihc is actually a promise is settled.
+// so the await is used to pause the code within untill the "api" whihc is actually a promise is settled.
 // So till then, the other things in the browser will be performed asynchronously.
   const handleSubmit = async (e) => {
     // e.preventDefault() prevents the default browser behavior of form submission, 
     // which would cause a page reload and send a POST request to the current URL
     e.preventDefault();
     try {
-      const response = await axios.get('/auth/login', {
+      const response = await api.get('/auth/login', {
         auth: {
           username,
           password,
@@ -35,8 +35,8 @@ function Login() {
       localStorage.setItem('password', password);
 
       
-      // Set default auth for axios
-      axios.defaults.auth = {
+      // Set default auth for api
+      api.defaults.auth = {
         username,
         password,
       };
