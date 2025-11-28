@@ -20,7 +20,7 @@ This plan outlines the steps to build an incident tracking application with Reac
 - [^] Create API endpoints for incident CRUD operations (create, read, update, delete)
 - [^] Implement filtering by status and sorting by creation date in listing endpoint
 - [^] Set up frontend project with React
-- [ ] Implement authentication in frontend
+- [^] Implement authentication in frontend
 - [ ] Create incident listing page with filter and sort functionality
 - [ ] Create incident create page
 - [ ] Create incident edit page

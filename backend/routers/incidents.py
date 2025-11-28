@@ -113,7 +113,7 @@ def create_incident(incident: IncidentCreate, db: Session = Depends(get_db)):
 # with a default value of None and a description for API documentation.
 
 # query = db.query(Incident)
-# Creates a SQLAlchemy query object starting with the Incident model. 
+# Creates a SQLAlchemy query object with the Incident model. 
 # This sets up a base query to select all incidents from the database.
 
 # query = query.filter(Incident.status == status)
@@ -124,6 +124,8 @@ def create_incident(incident: IncidentCreate, db: Session = Depends(get_db)):
 def list_incidents(
     status: Optional[str] = Query(None, description="Filter by status"),
     sort_by: str = Query("created_at", description="Sort by field"),
+    skip: int = Query(0, description="Number of items to skip"),
+    limit: int = Query(10, description="Number of items to return"),
     db: Session = Depends(get_db)
 ):
     query = db.query(Incident)
@@ -131,6 +133,7 @@ def list_incidents(
         query = query.filter(Incident.status == status)
     if sort_by == "created_at":
         query = query.order_by(Incident.created_at.desc())
+    query = query.offset(skip).limit(limit)
     return query.all()
 
 # In the line incident = db.query(Incident).filter(Incident.id == incident_id).first(), the .first() method is used to execute the query
