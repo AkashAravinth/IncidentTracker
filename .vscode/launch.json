@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Python Debugger: FastAPI",
+            // Specifies the debugger extension: debugpy (official Python debugger for VS Code).
+            "type": "debugpy",
+            // Tells VS Code to "launch" (start) the app.
+            "request": "launch",
+            // The Python module to run as the entry point (uvicorn is the ASGI server for FastAPI).
+            "module": "uvicorn",
+            "args": [
+                "backend.main:app",
+                "--reload"
+            ],
+        }
+    ]
+}

@@ -10,6 +10,8 @@
 # List: Specifies that a variable or function return is expected to be a list of certain types. For example, List[Incident] means a list where each element is an Incident object.
 # Optional: Means a value that could be either the specified type or None. It is equivalent to Union[type, None]. For example, Optional[str] means either a str or None.
 
+# DateTime is just a type.
+
 # The BaseModel in Pydantic is a fundamental class used to define data models with automatic data validation and parsing in Python. 
 # When you create a class that inherits from pydantic.BaseModel, you define the structure of your data using Python type annotations.
 # Python type annotation, also known as type hinting, is an optional syntax introduced to specify the expected data types of variables, function parameters, and return values directly in the code.
@@ -17,6 +19,7 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from typing import List, Optional
+from datetime import datetime
 from ..database import get_db
 from ..models import Incident
 from ..routers.auth import authenticate
@@ -62,8 +65,8 @@ class IncidentUpdate(BaseModel):
 
 class IncidentResponse(IncidentBase):
     id: int
-    created_at: str
-    updated_at: Optional[str]
+    created_at: datetime
+    updated_at: Optional[datetime]
 
     class Config:
         from_attributes = True

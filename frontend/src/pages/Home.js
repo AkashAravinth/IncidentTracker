@@ -20,7 +20,7 @@ function Home() {
       if (statusFilter) {
         params.status = statusFilter;
       }
-      const response = await api.get('/incidents', { params });
+      const response = await api.get('/incidents/', { params });
       setIncidents(response.data);
     } catch (error) {
       console.error('Error fetching incidents:', error);
@@ -28,11 +28,6 @@ function Home() {
   };
 
   useEffect(() => {
-  const username = localStorage.getItem('username');
-  const password = localStorage.getItem('password');
-  if (username && password) {
-    api.defaults.auth = { username, password };
-  }
     fetchIncidents();
   }, [statusFilter, currentPage]);
 
