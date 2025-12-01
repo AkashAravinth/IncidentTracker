@@ -21,10 +21,10 @@ This plan outlines the steps to build an incident tracking application with Reac
 - [^] Implement filtering by status and sorting by creation date in listing endpoint
 - [^] Set up frontend project with React
 - [^] Implement authentication in frontend
-- [ ] Create incident listing page with filter and sort functionality
-- [ ] Create incident create page
-- [ ] Create incident edit page
-- [ ] Add delete functionality to listing page
+- [^] Create incident listing page with filter and sort functionality
+- [^] Create incident create page
+- [^] Create incident edit page
+- [^] Add delete functionality to listing page
 - [ ] Create Dockerfile for backend
 - [ ] Create Dockerfile for frontend
 - [ ] Create Dockerfile for database (SQLite)
