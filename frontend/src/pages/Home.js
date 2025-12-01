@@ -92,10 +92,10 @@ function Home() {
           <div className="relative">
             <select className="appearance-none bg-white border border-slate-200 text-slate-700 py-2.5 pl-4 pr-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary cursor-pointer text-sm font-medium shadow-sm hover:border-slate-300 transition-colors"
              value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
-              <option>Filter by Status: All</option>
-              <option>Open</option>
-              <option>In_Progress</option>
-              <option>Resolved</option>
+              <option value="">Filter by Status: All</option>
+              <option value="Open">Open</option>
+              <option value="In_Progress">In_Progress</option>
+              <option value="Resolved">Resolved</option>
             </select>
              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-500">
                 <span className="material-symbols-outlined text-xl">expand_more</span>
