@@ -15,7 +15,7 @@ This plan outlines the steps to build an incident tracking application with Reac
 ## Todo List
 - [^] Define and finalize database schema with correct constraints
 - [^] Set up backend project structure with FastAPI and SQLAlchemy
-- [ ] Implement database models and migrations with Alembic
+- [^] Implement database models.
 - [^] Add basic authentication (username/password) to backend
 - [^] Create API endpoints for incident CRUD operations (create, read, update, delete)
 - [^] Implement filtering by status and sorting by creation date in listing endpoint
@@ -25,11 +25,11 @@ This plan outlines the steps to build an incident tracking application with Reac
 - [^] Create incident create page
 - [^] Create incident edit page
 - [^] Add delete functionality to listing page
-- [ ] Create Dockerfile for backend
-- [ ] Create Dockerfile for frontend
-- [ ] Create Dockerfile for database (SQLite)
-- [ ] Create docker-compose.yml for local development
-- [ ] Test the application locally with Docker
+- [^] Create Dockerfile for backend
+- [^] Create Dockerfile for frontend
+- [^] Create Dockerfile for database (SQLite)
+- [^] Create docker-compose.yml for local development
+- [^] Test the application locally with Docker
 - [ ] Set up AWS infrastructure (EC2, RDS if needed, but since SQLite, maybe just EC2)
 - [ ] Deploy application to AWS
 - [ ] Configure production settings and security

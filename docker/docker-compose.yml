@@ -1,0 +1,46 @@
+# This specifies the version of the Docker Compose file format you're using
+version: '3.8'
+
+services:
+# Each service is defined as a sub-key
+  db:
+    build: 
+      context: ..  
+      dockerfile: db/Dockerfile  
+    container_name: incident_tracker_db
+    volumes:
+      - db_data:/db  # /Mounts a named volume called db_data (defined later in the file under volumes:) to the path /db inside the container.
+    networks:
+      - app_network # Connects the db service to a custom network named app_network (defined later in the file under networks:).
+                    # This allows other services (e.g., backend) to communicate with db via the network, even though no ports are exposed.
+    # No ports exposed since SQLite is file-based
+
+  backend:
+    build: ../backend  # Path to backend/Dockerfile
+    container_name: incident_tracker_backend
+    ports:
+      - "8000:8000"  # Maps host port 8000 to container port 8000, This exposes your FastAPI app (running on 8000 inside the container) to http://localhost:8000 on the host.
+    depends_on:
+      - db  # Ensures db starts first
+    volumes:
+      - db_data:/db  # Shares the db volume with backend for access
+    environment:
+      - DATABASE_URL=sqlite:////db/incident_tracker.db  # Example env var (adjust based on your backend code)
+    networks:
+      - app_network
+
+  frontend:
+    build: ../frontend  # Path to frontend/Dockerfile
+    container_name: incident_tracker_frontend
+    ports:
+      - "80:80"  # Maps host port 80 to container port 80 (Nginx default)
+    depends_on:
+      - backend  # Ensures backend is ready
+    networks:
+      - app_network
+
+volumes:
+  db_data:  # Named volume for SQLite persistence
+
+networks:
+  app_network:  # Custom network for inter-service communication

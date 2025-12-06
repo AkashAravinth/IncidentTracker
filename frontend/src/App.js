@@ -13,11 +13,9 @@ import api from './services/api';
 
 function App() {
   useEffect(() => {
-    console.log("hi");
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
     if (username && password) {
-    console.log("hi, inside if",username, password);
       api.defaults.auth = { username, password };
     }
   }, []);

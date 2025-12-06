@@ -128,7 +128,7 @@ function Home() {
                 {incidents.map((incident) => (
                   <tr key={incident.id} className="hover:bg-slate-50/50 transition-colors group">
                     <td className="px-6 py-5 text-sm font-medium text-slate-900">{incident.title}</td>
-                    <td className="px-6 py-5 text-sm text-slate-500">{incident.description}</td>
+                    <td className="px-6 py-5 text-sm text-slate-500">{incident.desc}</td>
                     <td className="px-6 py-5">
                       <StatusBadge status={incident.status} />
                     </td>

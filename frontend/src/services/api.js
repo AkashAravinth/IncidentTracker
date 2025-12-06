@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-// the extension locahost:8000 is not needed to be specified as the proxy is set in the package.json .
+// the extension locahost:8000 is not needed to be specified as the proxy is not set in the package.json .
 
 const api = axios.create({
     baseURL: 'http://localhost:8000',
+    // baseURL: 'http://backend:8000',
 });
 
 // export default
